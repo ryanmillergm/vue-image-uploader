@@ -16,5 +16,9 @@
         "postcss": "^8.1.14",
         "vue": "^3.2.36",
         "vue-loader": "^17.0.0"
+    },
+    "dependencies": {
+        "filepond": "^4.30.4",
+        "vue-filepond": "^7.0.3"
     }
 }
