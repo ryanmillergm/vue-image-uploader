@@ -19486,6 +19486,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+(0,vue_filepond__WEBPACK_IMPORTED_MODULE_0__.setOptions)({
+  server: {
+    process: {
+      url: "./upload",
+      headers: {
+        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf_token"]').content
+      }
+    }
+  }
+});
 var FilePond = vue_filepond__WEBPACK_IMPORTED_MODULE_0___default()((filepond_plugin_file_validate_type__WEBPACK_IMPORTED_MODULE_2___default()));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -19527,7 +19537,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     name: "image",
     ref: "pond",
     "label-idle": "Click to choose image, or drag here ...",
-    server: "/upload",
     onInit: $options.filepondInitialized,
     "accepted-file-types": "image/*"
   }, null, 8
