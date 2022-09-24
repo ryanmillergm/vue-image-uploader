@@ -26,7 +26,7 @@ class ImageController extends Controller
         }
 
         $request->validate([
-            'image' => 'require|file|image'
+            'image' => 'required|file|image'
         ]);
 
         // save the file in storage
