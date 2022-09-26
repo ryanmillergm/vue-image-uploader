@@ -16,6 +16,7 @@ class ImageController extends Controller
     public function show()
     {
         // return all images
+        return Image::latest()->pluck('name')->toArray();
     }
 
     public function store(Request $request)
