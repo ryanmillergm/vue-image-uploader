@@ -49,6 +49,6 @@ class ImageController extends Controller
 
 
         // return that image model back to the frontend
-        return $image;
+        return $image->name;
     }
 }

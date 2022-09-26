@@ -19522,6 +19522,15 @@ var FilePond = vue_filepond__WEBPACK_IMPORTED_MODULE_0___default()((filepond_plu
     filepondInitialized: function filepondInitialized() {
       console.log('Filepond is ready!');
       console.log('Filepond is object:', this.$refs.pond);
+    },
+    handleProcessedFile: function handleProcessedFile(error, file) {
+      if (error) {
+        console.error(error);
+        return;
+      } // Add the file to our images array
+
+
+      this.images.unshift(file.serverId);
     }
   }
 });
@@ -19555,7 +19564,7 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_4 = {
-  "class": "grid gri-cols-3 gap-2 justify-evenly mt-4"
+  "class": "grid grid-cols-3 gap-2 justify-evenly mt-4"
 };
 var _hoisted_5 = ["src"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -19566,10 +19575,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ref: "pond",
     "label-idle": "Click to choose image, or drag here ...",
     onInit: $options.filepondInitialized,
-    "accepted-file-types": "image/*"
+    "accepted-file-types": "image/*",
+    onProcessfile: $options.handleProcessedFile
   }, null, 8
   /* PROPS */
-  , ["onInit"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.images, function (image, index) {
+  , ["onInit", "onProcessfile"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.images, function (image, index) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       key: index
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {

@@ -7,13 +7,14 @@
                 label-idle="Click to choose image, or drag here ..."
                 @init="filepondInitialized"
                 accepted-file-types="image/*"
+                @processfile="handleProcessedFile"
             />
         </div>
         <div class="mt-8 mb-24">
             <h3 class="text-2xl font-medium text-center">
                 Image Gallery
             </h3>
-            <div class="grid gri-cols-3 gap-2 justify-evenly mt-4">
+            <div class="grid grid-cols-3 gap-2 justify-evenly mt-4">
                 <div v-for="(image, index) in images" :key="index">
                     <img :src="'/storage/images/' + image">
                 </div>
@@ -65,6 +66,16 @@ import axios from 'axios';
             filepondInitialized() {
                 console.log('Filepond is ready!');
                 console.log('Filepond is object:', this.$refs.pond);
+            },
+
+            handleProcessedFile(error, file) {
+                if(error) {
+                    console.error(error);
+                    return;
+                }
+
+                // Add the file to our images array
+                this.images.unshift(file.serverId);
             }
         }
     }
