@@ -6,7 +6,7 @@
                 ref="pond"
                 label-idle="Click to choose image, or drag here..."
                 @init="filepondInitialized"
-                accepted-file-types="image/*"
+                accepted-file-types="image/jpg, image/jpeg, image/png"
                 allowMultiple="true"
                 @processfile="handleProcessedFile"
             />

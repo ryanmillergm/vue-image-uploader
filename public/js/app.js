@@ -19575,7 +19575,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ref: "pond",
     "label-idle": "Click to choose image, or drag here...",
     onInit: $options.filepondInitialized,
-    "accepted-file-types": "image/*",
+    "accepted-file-types": "image/jpg, image/jpeg, image/png",
     allowMultiple: "true",
     onProcessfile: $options.handleProcessedFile
   }, null, 8
