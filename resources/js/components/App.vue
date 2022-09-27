@@ -4,9 +4,10 @@
             <file-pond
                 name="image"
                 ref="pond"
-                label-idle="Click to choose image, or drag here ..."
+                label-idle="Click to choose image, or drag here..."
                 @init="filepondInitialized"
                 accepted-file-types="image/*"
+                allowMultiple="true"
                 @processfile="handleProcessedFile"
             />
         </div>
@@ -21,18 +22,18 @@
             </div>
         </div>
     </div>
-
 </template>
+
 <script>
     import vueFilePond, { setOptions } from 'vue-filepond';
     import "filepond/dist/filepond.min.css";
     import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
-import axios from 'axios';
+    import axios from 'axios';
 
     setOptions({
         server: {
             process: {
-                url: "./upload",
+                url: './upload',
                 headers: {
                     'X-CSRF-TOKEN': document.querySelector('meta[name="csrf_token"]').content
                 }
@@ -51,7 +52,6 @@ import axios from 'axios';
                 images: []
             }
         },
-
         mounted() {
             axios.get('./images')
                 .then((response) => {
@@ -59,22 +59,22 @@ import axios from 'axios';
                 })
                 .catch((error) => {
                     console.error(error);
-                })
+                });
         },
 
         methods: {
             filepondInitialized() {
                 console.log('Filepond is ready!');
-                console.log('Filepond is object:', this.$refs.pond);
+                console.log('Filepond object:', this.$refs.pond);
             },
 
             handleProcessedFile(error, file) {
-                if(error) {
+                if (error) {
                     console.error(error);
                     return;
                 }
 
-                // Add the file to our images array
+                // add the file to our images array
                 this.images.unshift(file.serverId);
             }
         }

@@ -19492,7 +19492,7 @@ __webpack_require__.r(__webpack_exports__);
 (0,vue_filepond__WEBPACK_IMPORTED_MODULE_0__.setOptions)({
   server: {
     process: {
-      url: "./upload",
+      url: './upload',
       headers: {
         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf_token"]').content
       }
@@ -19521,13 +19521,13 @@ var FilePond = vue_filepond__WEBPACK_IMPORTED_MODULE_0___default()((filepond_plu
   methods: {
     filepondInitialized: function filepondInitialized() {
       console.log('Filepond is ready!');
-      console.log('Filepond is object:', this.$refs.pond);
+      console.log('Filepond object:', this.$refs.pond);
     },
     handleProcessedFile: function handleProcessedFile(error, file) {
       if (error) {
         console.error(error);
         return;
-      } // Add the file to our images array
+      } // add the file to our images array
 
 
       this.images.unshift(file.serverId);
@@ -19573,9 +19573,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_file_pond, {
     name: "image",
     ref: "pond",
-    "label-idle": "Click to choose image, or drag here ...",
+    "label-idle": "Click to choose image, or drag here...",
     onInit: $options.filepondInitialized,
     "accepted-file-types": "image/*",
+    allowMultiple: "true",
     onProcessfile: $options.handleProcessedFile
   }, null, 8
   /* PROPS */
